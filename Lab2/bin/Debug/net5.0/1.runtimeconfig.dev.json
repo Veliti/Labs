@@ -1,0 +1,8 @@
+{
+  "runtimeOptions": {
+    "additionalProbingPaths": [
+      "/home/veliti/.dotnet/store/|arch|/|tfm|",
+      "/home/veliti/.nuget/packages"
+    ]
+  }
+}
