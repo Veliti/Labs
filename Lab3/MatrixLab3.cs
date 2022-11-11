@@ -187,7 +187,7 @@ public class MatrixLab3
         public void Subtract(MatrixLab3 matrix)
         {
             if (xLength != matrix.xLength || yLength != matrix.yLength) 
-                throw new Exception("Cannot subtract matrices of different size.");
+                throw new Exception("Cannot subtract matrices of different size");
                 
             for (int x = 0; x < xLength; x++)
             {
