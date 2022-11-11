@@ -8,11 +8,11 @@
 
 # Build results
 
-Debug/
-Release/
-x64/
-bin/
-obj/
+**/Debug/
+**/Release/
+**/x64/
+**/bin/
+**/obj/
 
 # MSTest test Results
 [Tt]est[Rr]esult*/
