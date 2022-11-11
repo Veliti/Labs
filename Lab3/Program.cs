@@ -15,17 +15,20 @@
 
 //Task 22
 
-// var array = new double[,]{{3, 5, 4, 2}, {7, 1, -8, 33}, {-13, 0, 6, -2}, {3, 15, 17, 4.5}};
-// var matrix4 = new MatrixLab3(array);
-// System.Console.WriteLine(matrix4);
+var array = new double[,]{{3, 5, 4, 2}, {7, 1, -8, 33}, {-13, 0, 6, -2}, {3, 15, 17, 4.5}};
+var matrix4 = new MatrixLab3(array);
+System.Console.WriteLine(matrix4);
 
-// matrix4.DiagonalSort();
-// System.Console.WriteLine(matrix4);
+matrix4.DiagonalSort();
+System.Console.WriteLine(matrix4);
 
-//Task 23
+if(matrix4.TestDiagonalSort())
+    System.Console.WriteLine("Test pass");
 
-var A = new MatrixLab3(new double[,]{{1, 2 ,3}, {3, 2, 1}, {4, 5, 6}});
-var B = new MatrixLab3(new double[,]{{2, 6, 1}, {5, 2, 7}, {7, 1, 0}});
-var C = new MatrixLab3(new double[,]{{4, 11, 1}, {5, 2, 7}, {7, 1, 31}});
+// //Task 23
 
-System.Console.WriteLine(2 * A - B.Transpose());
+// var A = new MatrixLab3(new double[,]{{1, 2 ,3}, {3, 2, 1}, {4, 5, 6}});
+// var B = new MatrixLab3(new double[,]{{2, 6, 1}, {5, 2, 7}, {7, 1, 0}});
+// var C = new MatrixLab3(new double[,]{{4, 11, 1}, {5, 2, 7}, {7, 1, 31}});
+
+// System.Console.WriteLine(2 * A - B.Transpose());

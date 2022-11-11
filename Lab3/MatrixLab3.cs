@@ -124,9 +124,9 @@ public class MatrixLab3
                 var smallestNumX = n;
                 var smallestNumY = n;
                 //finding next smallest number 
-                for (int x = n; x < size - n; x++)
+                for (int x = n; x < size; x++)
                 {
-                    for (int y = n; y < size - n; y++)
+                    for (int y = n; y < size; y++)
                     {
                         if (_matrix[x,y] < smallestNum)
                         {
@@ -144,7 +144,6 @@ public class MatrixLab3
                     _matrix[n, x] = _matrix[smallestNumX, x];
                     _matrix[smallestNumX, x] = buffer;
                 }
-
                 //Moving columns
                 for (int y = 0; y < size; y++)
                 {
@@ -153,6 +152,22 @@ public class MatrixLab3
                     _matrix[y, smallestNumY] = buffer;
                 }
             }
+        }
+
+        public bool TestDiagonalSort()
+        {
+            if(_matrix.GetLength(0) != _matrix.GetLength(1))
+                throw new Exception("Matrix need to be square");
+
+            var prevMember = _matrix[0,0];
+            for (int n = 1; n < xLength; n++)
+            {
+                if (prevMember > _matrix[n,n])
+                    return false;
+
+                prevMember = _matrix[n,n];
+            }
+            return true;
         }
 
         public void Add(MatrixLab3 matrix)
