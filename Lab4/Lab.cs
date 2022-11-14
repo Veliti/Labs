@@ -239,25 +239,27 @@ public static class Lab
             }
     #endregion
 
-    public static void Task6(string word)
-    {
-        var fileFrom = "task6raw.txt";
-        var file = "task6.txt";
-        var pathFrom = Path.Combine(Environment.CurrentDirectory, fileFrom);
-        var path = Path.Combine(Environment.CurrentDirectory, file);
-
-        using (var steamWriter = new StreamWriter(File.Create(path)))
-        {
-            using (var readerFrom = new StreamReader(File.OpenRead(pathFrom)))
+    #region Lab6
+            public static void Task6(string word)
             {
-                while (!readerFrom.EndOfStream)
+                var fileFrom = "task6raw.txt";
+                var file = "task6.txt";
+                var pathFrom = Path.Combine(Environment.CurrentDirectory, fileFrom);
+                var path = Path.Combine(Environment.CurrentDirectory, file);
+        
+                using (var steamWriter = new StreamWriter(File.Create(path)))
                 {
-                    var line = readerFrom.ReadLine();
-                    if(line!.Contains(word))
-                        steamWriter.WriteLine(line);
+                    using (var readerFrom = new StreamReader(File.OpenRead(pathFrom)))
+                    {
+                        while (!readerFrom.EndOfStream)
+                        {
+                            var line = readerFrom.ReadLine();
+                            if(line!.Contains(word))
+                                steamWriter.WriteLine(line);
+                        }
+                    }
                 }
             }
-        }
-    }
+    #endregion
 
 }
