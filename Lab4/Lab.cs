@@ -6,13 +6,15 @@ using System.Collections.Generic;
 public static class Lab
 {
     #region Task1
-        public static void Task1()
+        public static void Task1(int amount)
         {
             var file = "task1.bin";
             var path = Path.Combine(Environment.CurrentDirectory, file);
-    
-            var amount = 120;
+
+            //создаём фаил рандомных чисел
             CreateFileRandomNumbers(path, amount);
+
+            //поиск мин и макс чисел
             var minmax = FindMinMaxInFile(path);
             Console.WriteLine(minmax);
         }
@@ -53,8 +55,10 @@ public static class Lab
     
             var amount = Random.Shared.Next(36);
             CreateFileRandomNumbers(path, amount);
+
             var max = FindMinMaxInFile(path).max;
             System.Console.WriteLine($"Max: {max}");
+            //приколы с матрицами
             Console.WriteLine(MatrixToString(CreateMatrixAndReplace(path, max)));
         }
     
@@ -107,7 +111,7 @@ public static class Lab
             WriteToyData(toys, path);
     
             var readToys = ReadToyData(path);
-    
+            //ищем подходящие игрушки
             foreach (var toy in readToys)
             {
                 if (toy.Price <= priceFilter && toy.AgeRestriction.min <= ageFilter && toy.AgeRestriction.max >= ageFilter)
@@ -123,6 +127,7 @@ public static class Lab
             {
                 foreach (var item in toys)
                 {
+                    //записываем игрушку в фаил
                     streamWriter.Write(item.Name);
                     streamWriter.Write(item.Price);
                     streamWriter.Write(item.AgeRestriction.min);
@@ -138,12 +143,13 @@ public static class Lab
             {
                 while (streamReader.BaseStream.Length != streamReader.BaseStream.Position)
                 {
+                    //читаем игрушку из файла
                     toys.Add(
                         new ToyData(
-                    streamReader.ReadString(),
-                    streamReader.ReadInt32(),
-                    (streamReader.ReadInt32(),
-                    streamReader.ReadInt32()))
+                        streamReader.ReadString(),
+                        streamReader.ReadInt32(),
+                        (streamReader.ReadInt32(),
+                        streamReader.ReadInt32()))
                     );
                 }
             }
@@ -208,7 +214,7 @@ public static class Lab
                 }
         
         
-                //read to list
+                //read from list
                 List<int> readNumbers = new();
                 using (var streamReader = new StreamReader(File.OpenRead(path)))
                 {
@@ -223,7 +229,6 @@ public static class Lab
                         streamReader.Read();
         
                         int number = int.Parse(chars.ToArray());
-                        System.Console.WriteLine(number);
                         readNumbers.Add(number);
                     }
                 }
