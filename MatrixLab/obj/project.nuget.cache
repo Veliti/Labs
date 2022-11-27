@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "fPYj/icpZkZ3CdinYK4s+mCBS5S2K+jkbyAeMZZAzKIOGLZnPG8RXJOsfxBKmBEVc83aFzIbYdceBqKnHHeiWA==",
+  "dgSpecHash": "OdT+Hqo8PSUThUNOFApyud3LShGHZWNcWYRPguzCklmDQK2gfT4N/lpFk/uemAXMmsesCPzW8T/AiDNvSLutAg==",
   "success": true,
-  "projectFilePath": "/home/veliti/Documents/C/MatrixLab/MatrixLab.csproj",
+  "projectFilePath": "/home/veliti/Documents/GitHub/Labs/MatrixLab/MatrixLab.csproj",
   "expectedPackageFiles": [],
   "logs": []
 }

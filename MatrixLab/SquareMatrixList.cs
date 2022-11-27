@@ -9,18 +9,20 @@ public class SquareMatrixList
 
     public void Sort()
     {
-        for (int i = 0; i < _matrices.Length; i++)
+        var sorted = false;
+        while (!sorted)
         {
-            var item = _matrices[i];
-            var currentIndex = i;
-
-            while (currentIndex > 0 && _matrices[currentIndex - 1] > item)
+            for (int i = 0; i < _matrices.Length - 1; i++)
             {
-                _matrices[currentIndex] = _matrices[currentIndex - 1];
-                currentIndex--;
+                sorted = true;
+                if (_matrices[i] > _matrices[i + 1])
+                {
+                    var tmp = _matrices[i];
+                    _matrices[i] = _matrices[i + 1];
+                    _matrices[i + 1] = tmp;
+                    sorted = false;
+                }
             }
-
-            _matrices[currentIndex] = item;
         }
     }
 

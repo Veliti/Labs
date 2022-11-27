@@ -9,6 +9,7 @@
         "cpp"
     ],
     "files.associations": {
-        "*.rh": "cpp"
+        "*.rh": "cpp",
+        "stdio.h": "c"
     }
 }

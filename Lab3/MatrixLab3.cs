@@ -1,9 +1,5 @@
-
-
-
 using System;
 using System.Collections.Generic;
-using System.Globalization;
 using System.Text;
 
 public class MatrixLab3
@@ -44,7 +40,7 @@ public class MatrixLab3
                 }
             }
         }
-
+        //считывание чисел с консоли 
         bool TryReadInts(int amount, out List<int> ints)
         {
             ints = new List<int>(amount);
@@ -153,7 +149,7 @@ public class MatrixLab3
                 }
             }
         }
-
+        //Проверка правального выполнения 2ого задания
         public bool TestDiagonalSort()
         {
             if(_matrix.GetLength(0) != _matrix.GetLength(1))
@@ -169,7 +165,7 @@ public class MatrixLab3
             }
             return true;
         }
-
+        // сложение
         public void Add(MatrixLab3 matrix)
         {
             if (xLength != matrix.xLength || yLength != matrix.yLength)
@@ -183,7 +179,7 @@ public class MatrixLab3
                 }
             }
         }
-
+        // вычитание
         public void Subtract(MatrixLab3 matrix)
         {
             if (xLength != matrix.xLength || yLength != matrix.yLength) 
@@ -197,7 +193,7 @@ public class MatrixLab3
                 }
             }
         }
-
+        //умножение на число
         public void Multiply(double number)
         {
             for (int x = 0; x < xLength; x++)
@@ -208,7 +204,7 @@ public class MatrixLab3
                 }
             }
         }
-
+        //Умножение на матрицу
         public void Multiply(MatrixLab3 matrix)
         {
             if(xLength != matrix.yLength)
@@ -227,7 +223,7 @@ public class MatrixLab3
             }
             _matrix = result;
         }
-
+        //Транспонирование
         public MatrixLab3 Transpose()
         {
             var tMatrix = new double[yLength, xLength];
@@ -241,25 +237,25 @@ public class MatrixLab3
             _matrix = tMatrix;
             return this;
         }
-
+        //умножение на матрицу
         public static MatrixLab3 operator *(MatrixLab3 matrix1, MatrixLab3 matrix2)
         {
             matrix1.Multiply(matrix2);
             return matrix1;
         }
-
+        //умножение на число
         public static MatrixLab3 operator *(double number, MatrixLab3 matrix)
         {
             matrix.Multiply(number);
             return matrix;
         }
-        
+        //минул
         public static MatrixLab3 operator -(MatrixLab3 matrix1, MatrixLab3 matrix2)
         {
             matrix1.Subtract(matrix2);
             return matrix1;
         }
-
+        //Конвертация в строку
         public override string ToString()
         {
             var builder = new StringBuilder();

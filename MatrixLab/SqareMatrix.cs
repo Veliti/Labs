@@ -12,6 +12,28 @@ public class SquareMatrix : Matrix
             throw new Exception("Wrong matrix init: not square array");
     }
 
+            public void Add(SquareMatrix matrix)
+        {
+            for (int x = 0; x < xLength; x++)
+            {
+                for (int y = 0; y < yLength; y++)
+                {
+                    _matrix[x, y] += matrix._matrix[x, y];
+                }
+            }
+        }
+
+        public void Subtract(SquareMatrix matrix)
+        {  
+            for (int x = 0; x < xLength; x++)
+            {
+                for (int y = 0; y < yLength; y++)
+                {
+                    _matrix[x, y] -= matrix._matrix[x, y];
+                }
+            }
+        }
+
     public int GetDeterminant()
     {
         return CalculateMinor(
@@ -25,4 +47,23 @@ public class SquareMatrix : Matrix
     public static bool operator <(SquareMatrix matrix1, SquareMatrix matrix2) => matrix1.GetDeterminant() < matrix2.GetDeterminant();
 
     public static implicit operator int(SquareMatrix matrix) => matrix.GetDeterminant();
+
+    //умножение на матрицу
+    public static SquareMatrix operator *(SquareMatrix matrix1, SquareMatrix matrix2)
+    {
+        matrix1.Multiply((Matrix)matrix2);
+        return matrix1;
+    }
+    //умножение на число
+    public static SquareMatrix operator *(int number, SquareMatrix matrix)
+    {
+        matrix.Multiply(number);
+        return matrix;
+    }
+    //минус
+    public static SquareMatrix operator -(SquareMatrix matrix1, SquareMatrix matrix2)
+    {
+        matrix1.Subtract(matrix2);
+        return matrix1;
+    }
 }

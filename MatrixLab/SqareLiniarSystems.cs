@@ -7,13 +7,6 @@ public class SquareLinierSystems : SquareMatrix
 {
     private int[] _freeElements;
 
-    public enum SolutionType
-    {
-        InfiniteSolutions,
-        NoSolutions,
-        OneSolution
-    }
-
     public SquareLinierSystems(int[,] matrix, int[] freeElements) : base(matrix)
     {
         if (freeElements.Length != Size)

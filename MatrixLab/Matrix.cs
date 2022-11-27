@@ -16,34 +16,6 @@ public class Matrix
             _matrix = matrix;
         }
 
-        public void Add(Matrix matrix)
-        {
-            if (xLength != matrix.xLength || yLength != matrix.yLength)
-                throw new Exception("Cannot add matrices of different size");
-
-            for (int x = 0; x < xLength; x++)
-            {
-                for (int y = 0; y < yLength; y++)
-                {
-                    _matrix[x, y] += matrix._matrix[x, y];
-                }
-            }
-        }
-
-        public void Subtract(Matrix matrix)
-        {
-            if (xLength != matrix.xLength || yLength != matrix.yLength) 
-                throw new Exception("Cannot subtract matrices of different size");
-                
-            for (int x = 0; x < xLength; x++)
-            {
-                for (int y = 0; y < yLength; y++)
-                {
-                    _matrix[x, y] -= matrix._matrix[x, y];
-                }
-            }
-        }
-
         public void Multiply(int number)
         {
             for (int x = 0; x < xLength; x++)
@@ -53,6 +25,26 @@ public class Matrix
                     _matrix[x, y] *= number;
                 }
             }
+        }
+
+        //Умножение на матрицу
+        public void Multiply(Matrix matrix)
+        {
+            if(xLength != matrix.yLength)
+                throw new Exception("Matrix1 rows should be equal other matrix2 columns");
+
+            var result = new int[xLength,xLength];
+            for (int x = 0; x < xLength; x++)
+            {
+                for (int y = 0; y < xLength; y++)
+                {
+                    for (int i = 0; i < yLength; i++)
+                    {
+                        result[x,y] += _matrix[x, i] * matrix._matrix[i, y];
+                    }
+                }
+            }
+            _matrix = result;
         }
 
         public void Transpose()

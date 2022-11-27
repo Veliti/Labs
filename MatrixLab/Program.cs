@@ -26,6 +26,7 @@ PrintSolutions(system3);
     
 //списки квадратных матриц
 var matrices = new SquareMatrixList(new SquareMatrix[]{matrix, system2, system3, new SquareMatrix(matrixArr2)});
+matrices.Sort();
 System.Console.WriteLine(matrices);
 
 
@@ -43,3 +44,5 @@ void PrintSolutions(SquareLinierSystems system)
     else 
         System.Console.WriteLine("No solution found");
 }
+
+//нужен вар для последнего задания
