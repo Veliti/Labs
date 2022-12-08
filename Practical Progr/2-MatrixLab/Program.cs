@@ -45,4 +45,31 @@ void PrintSolutions(SquareLinierSystems system)
         System.Console.WriteLine("No solution found");
 }
 
-//нужен вар для последнего задания
+
+//BT CT DT;
+var matrixB = new Matrix(new int[,]{
+    {3, 8, 15},
+    {8, -1, 0},
+    {11, 7, 13}
+});
+
+var matrixC = new Matrix(new int[,]{
+    {1, 3, 15},
+    {3, 1, 0},
+    {11, 7, 12},
+});
+
+var matrixD = new Matrix(new int[,]{
+    {3, 8, 25},
+    {2, -1, 0},
+    {11, 17, 13}
+});
+
+
+System.Console.WriteLine(matrixB);
+System.Console.WriteLine(matrixC);
+System.Console.WriteLine(matrixD);
+
+var expresionResult = matrixB.Transpose() * matrixC.Transpose() * matrixD.Transpose();
+
+System.Console.WriteLine(expresionResult);
