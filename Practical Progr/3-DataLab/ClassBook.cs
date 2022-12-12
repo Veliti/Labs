@@ -5,9 +5,9 @@ using System.Linq;
 
 public class ClassBook : System.IDisposable
 {
-    DataBase<StudentEntry> _students;
-    DataBase<SubjectEntry> _subjects;
-    DataBase<AcademicRelation> _relation;
+    protected DataBase<StudentEntry> _students;
+    protected DataBase<SubjectEntry> _subjects;
+    protected DataBase<AcademicRelation> _relation;
 
     public ClassBook(Logger? logger = null)
     {

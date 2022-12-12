@@ -70,7 +70,7 @@ public class Matrix
             {
                 for (int y = 0; y < yLength; y++)
                 {
-                    builder.Append($"{_matrix[x,y], 10}");
+                    builder.Append($"{_matrix[x,y], 3}");
                 }
                 builder.Append(Environment.NewLine);
             }

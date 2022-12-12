@@ -2,10 +2,10 @@ public record AcademicRelation(int StudentID, int SubjectID, int[] Marks)
 {
     public override string ToString()
     {
-        var marks = "";
+        var marks = "|";
         foreach (var item in Marks)
         {
-            marks += $" {item}";
+            marks += $" {item} |";
         }
 
         return marks;

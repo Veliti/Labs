@@ -1,6 +1,8 @@
 ﻿// var 6
+using System;
 using System.Collections.Generic;
 using static System.Console;
+using static ConsoleHelper;
 
 internal class Program
 {
@@ -56,13 +58,13 @@ internal class Program
                             switch (words.Dequeue())
                             {
                                 case "student":
-                                    classBook.AddStudent(int.Parse(words.Dequeue()), ToString(words));
+                                    classBook.AddStudent(int.Parse(words.Dequeue()), EnumerableToString(words));
                                     break;
                                 case "subject":
-                                    classBook.AddSubject(int.Parse(words.Dequeue()), ToString(words));
+                                    classBook.AddSubject(int.Parse(words.Dequeue()), EnumerableToString(words));
                                     break;
                                 case "marks":
-                                    classBook.UpdateMarks(int.Parse(words.Dequeue()), int.Parse(words.Dequeue()), ParseInts(words));
+                                    classBook.UpdateMarks(int.Parse(words.Dequeue()), int.Parse(words.Dequeue()), ParseMarks(words));
                                     break;
                                 default:
                                     WriteLine(wrong);
@@ -99,43 +101,10 @@ internal class Program
                 }
                 catch (System.Exception e)
                 {
-                    WriteLine(e);
+                    WriteLine(e.Message);
                 }
 
             }
         }
-    }
-
-    private static void Print(string[] list, string? search)
-    {
-        if (search == null) search = string.Empty;
-        foreach (var item in list)
-        {
-            if (item.Contains(search))
-            {
-                WriteLine(item);
-            }
-        }
-    }
-
-    private static string ToString(IEnumerable<string> words)
-    {
-        var line = "";
-        foreach (var item in words)
-        {
-            line += item + " ";
-        }
-        return line;
-    }
-
-    private static int[] ParseInts(IEnumerable<string> words)
-    {
-        var ints = new List<int>();
-        foreach (var item in words)
-        {
-            ints.Add(int.Parse(item));
-        }
-
-        return ints.ToArray();
     }
 }
